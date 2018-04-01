@@ -35,9 +35,9 @@ public abstract class WebsiteSpecificOperations {
         return element;
     }
 
-    protected void pause(){
+    protected void pause(int seconds){
         try {
-            Thread.sleep(1000);
+            Thread.sleep(seconds*1000);
         } catch (InterruptedException e) {
             // TBD: Auto-generated catch block.
             e.printStackTrace();

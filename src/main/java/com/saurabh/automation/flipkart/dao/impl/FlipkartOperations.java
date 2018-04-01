@@ -27,11 +27,11 @@ public class FlipkartOperations extends WebsiteSpecificOperations {
     public void productBuy() {
         driver.get(PropertiesReader.getProperty("productUrl"));
         getElement(By.xpath("//a[text()='Login & Signup']")).click();
-        pause();
+        pause(1);
         login();
-        pause();
+        pause(1);
         getElement(By.xpath("//button[@type='button' and text()='BUY NOW']")).click();
-        pause();
+        pause(1);
         addnewAddress();
         confimBooking();
 

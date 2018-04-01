@@ -1,11 +1,12 @@
 package com.saurabh.automation.flipkart.utils;
 
+import org.apache.log4j.Logger;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
-import org.apache.log4j.Logger;
 /**
  * Created by saurabhagrawal on 29/03/18.
  */
