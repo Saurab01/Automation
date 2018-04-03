@@ -27,14 +27,13 @@ public class FlipkartOperations extends WebsiteSpecificOperations {
     public void productBuy() {
         driver.get(PropertiesReader.getProperty("productUrl"));
         getElement(By.xpath("//a[text()='Login & Signup']")).click();
-        pause(1);
+        //pause(1);
         login();
         pause(1);
-        getElement(By.xpath("//button[@type='button' and text()='BUY NOW']")).click();
+        clickWhenReady(By.xpath("//button[@type='button' and text()='BUY NOW']"));
         pause(1);
         addnewAddress();
         confimBooking();
-
     }
 
     @Override
@@ -55,8 +54,8 @@ public class FlipkartOperations extends WebsiteSpecificOperations {
 
     @Override
     protected void confimBooking() {
-        getElement(By.xpath("//button[.='CONTINUE']")).click();
-        driver.findElement(By.xpath("//button[.='Confirm']"));
+        clickWhenReady(By.xpath("//button[.='CONTINUE']"));
+        getElement(By.xpath("//button[.='Confirm Order']"));
 
     }
 }

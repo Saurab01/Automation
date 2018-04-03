@@ -37,11 +37,8 @@ public class MiOperations extends WebsiteSpecificOperations {
         //pause();
         login();
         addnewAddress();
-        /*pause();
-        getElement(By.xpath("//button[@type='button' and text()='BUY NOW']")).click();
-        pause();
-        addnewAddress();
-        confimBooking();*/
+        pause(1);
+        confimBooking();
 
     }
 
@@ -58,15 +55,13 @@ public class MiOperations extends WebsiteSpecificOperations {
         getElement(By.xpath("//label[.='Email']/../parent::*//input[@type='text' and @id='email']")).sendKeys(PropertiesReader.getProperty("CUSTOMER_EMAIL_ADDRESS"));
         getElement(By.xpath("//label[.='Phone']/../parent::*//input[@type='text' and @id='Telephone']")).sendKeys(PropertiesReader.getProperty("CUSTOMER_PHONE_NUMBER"));
 
-        pause(3);
-        getElement(By.xpath("//div[@class='ft']/descendant::button[text()='Confirm' and @type='button']")).click();
-
-
+        pause(1);
+        clickWhenReady(By.xpath("//div[@class='ft']/descendant::button[text()='Confirm' and @type='button']"));
 
     }
 
     @Override
     protected void confimBooking() {
-
+        clickWhenReady(By.xpath("//input[@value='Place order' and @type='submit'and @name='Checkout[submit]']"));
     }
 }

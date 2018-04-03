@@ -24,8 +24,10 @@ public class AutomationService {
 
         // Setting up Chrome driver path.
         System.setProperty("webdriver.chrome.driver", "libs"+ File.separator+"chromedriver");
+        //System.setProperty("webdriver.gecko.driver","libs"+ File.separator+"geckodriver");
         // Launching Chrome browser.
         driver = new ChromeDriver();
+        //driver=new FirefoxDriver();
         driver.manage().window().maximize();
 
         if (tag.equalsIgnoreCase(AutomationConstants.TAG_FLIPKART))
@@ -33,7 +35,6 @@ public class AutomationService {
         else if (tag.equalsIgnoreCase(AutomationConstants.TAG_MI))
             PropertiesReader.initialize(Collections.singletonList("src" + File.separator + "main" + File.separator + "resources" + File.separator + "file_" + AutomationConstants.TAG_MI + ".properties"));
         else throw new Exception("invalid option , only flipkart or MI is allowed");
-
 
     }
 

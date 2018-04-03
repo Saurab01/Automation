@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.FluentWait;
 
 import java.util.concurrent.TimeUnit;
@@ -21,7 +22,7 @@ public abstract class WebsiteSpecificOperations {
 
     protected WebElement getElement(final By locator) {
         FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(10, TimeUnit.SECONDS)
-                .pollingEvery(2, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
+                .pollingEvery(1, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
 
         WebElement element = wait.until(new Function<WebDriver, WebElement>() {
 
@@ -42,6 +43,14 @@ public abstract class WebsiteSpecificOperations {
             // TBD: Auto-generated catch block.
             e.printStackTrace();
         }
+    }
+    protected void clickWhenReady(final By locator) {
+
+        WebElement element=getElement(locator);
+        //driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+        Actions act=new Actions(driver);
+        act.moveToElement(element).click().build().perform();
+       // element.click();
     }
 
     protected abstract void addnewAddress();
